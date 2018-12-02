@@ -1,6 +1,6 @@
-package com.streetjam.client;
+package com.tankmania.client;
 
-import com.streetjam.proto.StreetJamProtos;
+import com.tankmania.proto.StreetJamProtos;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
