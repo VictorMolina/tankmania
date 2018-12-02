@@ -1,0 +1,59 @@
+syntax = "proto2";
+
+package tutorial;
+
+option java_package = "com.streetjam.proto";
+option java_outer_classname = "StreetJamProtos";
+
+message StreetJamRequest {
+    oneof request {
+        AddressBookRequest address_book_request = 1;
+        AddPersonRequest add_person_request = 2;
+    }
+}
+
+message StreetJamResponse {
+    oneof response {
+        AddressBookResponse address_book_response = 1;
+        AddPersonResponse add_person_response = 2;
+    }
+}
+
+message AddressBookRequest {
+    optional uint64 id = 1;
+}
+
+message AddressBookResponse {
+    repeated AddressBook address_book = 1;
+}
+
+message AddPersonRequest {
+    required Person person = 1;
+}
+
+message AddPersonResponse {
+    required uint64 id = 1;
+}
+
+message Person {
+    required string name = 1;
+    required uint64 id = 2;
+    optional string email = 3;
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+
+    message PhoneNumber {
+        required string number = 1;
+        optional PhoneType type = 2 [default = HOME];
+    }
+
+    repeated PhoneNumber phones = 4;
+}
+
+message AddressBook {
+    repeated Person people = 1;
+}
