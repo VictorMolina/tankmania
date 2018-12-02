@@ -1,12 +1,10 @@
-package com.streetjam.game.config;
+package com.tankmania.game.config;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.streetjam.game.model.AddressBook;
-import com.streetjam.game.service.AddressBookService;
+import com.tankmania.game.model.AddressBook;
 
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Configuration extends AbstractModule {

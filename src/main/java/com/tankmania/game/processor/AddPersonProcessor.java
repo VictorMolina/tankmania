@@ -1,11 +1,11 @@
-package com.streetjam.game.processor;
+package com.tankmania.game.processor;
 
 import com.google.inject.Inject;
-import com.streetjam.game.model.Person;
-import com.streetjam.game.model.Phone;
-import com.streetjam.game.model.PhoneType;
-import com.streetjam.game.service.AddressBookService;
-import com.streetjam.proto.StreetJamProtos;
+import com.tankmania.game.model.Person;
+import com.tankmania.game.model.Phone;
+import com.tankmania.game.model.PhoneType;
+import com.tankmania.game.service.AddressBookService;
+import com.tankmania.proto.TankManiaProtos;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,12 +17,12 @@ public class AddPersonProcessor implements StreetJamRequestProcessor {
     private AddressBookService addressBookService;
 
     @Override
-    public boolean isValid(StreetJamProtos.StreetJamRequest request) {
+    public boolean isValid(TankManiaProtos.TankManiaRequest request) {
         return request.hasAddPersonRequest();
     }
 
     @Override
-    public StreetJamProtos.StreetJamResponse process(StreetJamProtos.StreetJamRequest request) {
+    public TankManiaProtos.TankManiaResponse process(TankManiaProtos.TankManiaRequest request) {
         String name = request.getAddPersonRequest().getPerson().getName();
         String email = request.getAddPersonRequest().getPerson().getEmail();
         List<Phone> phoneList = request.getAddPersonRequest().getPerson().getPhonesList().stream()

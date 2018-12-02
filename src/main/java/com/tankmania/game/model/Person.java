@@ -1,4 +1,4 @@
-package com.streetjam.game.model;
+package com.tankmania.game.model;
 
 import java.util.Collections;
 import java.util.List;

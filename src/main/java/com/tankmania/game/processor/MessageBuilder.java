@@ -1,34 +1,34 @@
-package com.streetjam.game.processor;
+package com.tankmania.game.processor;
 
-import com.streetjam.game.model.AddressBook;
-import com.streetjam.game.model.Person;
-import com.streetjam.proto.StreetJamProtos;
+import com.tankmania.game.model.AddressBook;
+import com.tankmania.game.model.Person;
+import com.tankmania.proto.TankManiaProtos;
 
 public class MessageBuilder {
-    public static StreetJamProtos.StreetJamResponse getAddressBookResponse(AddressBook addressBook) {
-        StreetJamProtos.AddressBook.Builder addressBookBuilder = StreetJamProtos.AddressBook.newBuilder();
+    public static TankManiaProtos.TankManiaResponse getAddressBookResponse(AddressBook addressBook) {
+        TankManiaProtos.AddressBook.Builder addressBookBuilder = TankManiaProtos.AddressBook.newBuilder();
         addressBook.getContacts().forEach(person -> {
-            StreetJamProtos.Person.Builder personBuilder = StreetJamProtos.Person.newBuilder();
+            TankManiaProtos.Person.Builder personBuilder = TankManiaProtos.Person.newBuilder();
             personBuilder.setId(person.getId());
             personBuilder.setName(person.getName());
             personBuilder.setEmail(person.getEmail());
             person.getPhones().forEach(phone -> {
-                StreetJamProtos.Person.PhoneNumber.Builder phoneNumberBuilder = StreetJamProtos.Person.PhoneNumber.newBuilder();
+                TankManiaProtos.Person.PhoneNumber.Builder phoneNumberBuilder = TankManiaProtos.Person.PhoneNumber.newBuilder();
                 phoneNumberBuilder.setNumber(phone.getNumber());
-                phoneNumberBuilder.setType(StreetJamProtos.Person.PhoneType.valueOf(phone.getPhoneType().name()));
+                phoneNumberBuilder.setType(TankManiaProtos.Person.PhoneType.valueOf(phone.getPhoneType().name()));
                 personBuilder.addPhones(phoneNumberBuilder.build());
             });
             addressBookBuilder.addPeople(personBuilder.build());
         });
-        return StreetJamProtos.StreetJamResponse.newBuilder()
-                .setAddressBookResponse(StreetJamProtos.AddressBookResponse.newBuilder()
+        return TankManiaProtos.TankManiaResponse.newBuilder()
+                .setAddressBookResponse(TankManiaProtos.AddressBookResponse.newBuilder()
                         .addAddressBook(addressBookBuilder.build()))
                 .build();
     }
 
-    public static StreetJamProtos.StreetJamResponse getAddPersonResponse(Person person) {
-        return StreetJamProtos.StreetJamResponse.newBuilder()
-                .setAddPersonResponse(StreetJamProtos.AddPersonResponse.newBuilder()
+    public static TankManiaProtos.TankManiaResponse getAddPersonResponse(Person person) {
+        return TankManiaProtos.TankManiaResponse.newBuilder()
+                .setAddPersonResponse(TankManiaProtos.AddPersonResponse.newBuilder()
                         .setId(person.getId()))
                 .build();
     }

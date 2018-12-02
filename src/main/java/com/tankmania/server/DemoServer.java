@@ -1,4 +1,4 @@
-package com.streetjam.server;
+package com.tankmania.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.EventLoopGroup;

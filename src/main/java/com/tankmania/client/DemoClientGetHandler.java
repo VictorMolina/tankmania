@@ -1,6 +1,6 @@
-package com.streetjam.client;
+package com.tankmania.client;
 
-import com.streetjam.proto.StreetJamProtos;
+import com.tankmania.proto.TankManiaProtos;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -9,14 +9,14 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 
-public class DemoClientGetHandler extends SimpleChannelInboundHandler<StreetJamProtos.StreetJamResponse> {
+public class DemoClientGetHandler extends SimpleChannelInboundHandler<TankManiaProtos.TankManiaResponse> {
 
     private Channel channel;
-    private StreetJamProtos.StreetJamResponse resp;
-    BlockingQueue<StreetJamProtos.StreetJamResponse> resps = new LinkedBlockingQueue<>();
-    public StreetJamProtos.StreetJamResponse sendRequest() {
-        StreetJamProtos.StreetJamRequest req = StreetJamProtos.StreetJamRequest.newBuilder()
-                .setAddressBookRequest(StreetJamProtos.AddressBookRequest.newBuilder().setId(1L).build())
+    private TankManiaProtos.TankManiaResponse resp;
+    BlockingQueue<TankManiaProtos.TankManiaResponse> resps = new LinkedBlockingQueue<>();
+    public TankManiaProtos.TankManiaResponse sendRequest() {
+        TankManiaProtos.TankManiaRequest req = TankManiaProtos.TankManiaRequest.newBuilder()
+                .setAddressBookRequest(TankManiaProtos.AddressBookRequest.newBuilder().setId(1L).build())
                 .build();
 
         // Send request
@@ -46,7 +46,7 @@ public class DemoClientGetHandler extends SimpleChannelInboundHandler<StreetJamP
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, StreetJamProtos.StreetJamResponse msg)
+    protected void channelRead0(ChannelHandlerContext ctx, TankManiaProtos.TankManiaResponse msg)
             throws Exception {
         resps.add(msg);
     }

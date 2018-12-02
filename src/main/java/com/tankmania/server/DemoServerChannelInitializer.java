@@ -1,7 +1,7 @@
-package com.streetjam.server;
+package com.tankmania.server;
 
 
-import com.streetjam.proto.StreetJamProtos;
+import com.tankmania.proto.TankManiaProtos;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -16,7 +16,7 @@ public class DemoServerChannelInitializer extends ChannelInitializer<SocketChann
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline p = ch.pipeline();
         p.addLast(new ProtobufVarint32FrameDecoder());
-        p.addLast(new ProtobufDecoder(StreetJamProtos.StreetJamRequest.getDefaultInstance()));
+        p.addLast(new ProtobufDecoder(TankManiaProtos.TankManiaRequest.getDefaultInstance()));
 
         p.addLast(new ProtobufVarint32LengthFieldPrepender());
         p.addLast(new ProtobufEncoder());

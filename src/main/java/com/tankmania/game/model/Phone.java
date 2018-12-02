@@ -1,4 +1,4 @@
-package com.streetjam.game.model;
+package com.tankmania.game.model;
 
 public class Phone {
     private final String number;

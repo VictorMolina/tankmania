@@ -1,9 +1,9 @@
-package com.streetjam.game.service;
+package com.tankmania.game.service;
 
 import com.google.inject.Inject;
-import com.streetjam.game.model.AddressBook;
-import com.streetjam.game.model.Person;
-import com.streetjam.game.model.Phone;
+import com.tankmania.game.model.AddressBook;
+import com.tankmania.game.model.Person;
+import com.tankmania.game.model.Phone;
 
 import java.util.List;
 

@@ -1,14 +1,14 @@
-package com.streetjam.server;
+package com.tankmania.server;
 
-import com.streetjam.game.processor.StreetJamProcessor;
-import com.streetjam.proto.StreetJamProtos;
+import com.tankmania.game.processor.StreetJamProcessor;
+import com.tankmania.proto.TankManiaProtos;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-public class DemoProtocolServerHandler extends SimpleChannelInboundHandler<StreetJamProtos.StreetJamRequest> {
+public class DemoProtocolServerHandler extends SimpleChannelInboundHandler<TankManiaProtos.TankManiaRequest> {
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, StreetJamProtos.StreetJamRequest msg)
+    protected void channelRead0(ChannelHandlerContext ctx, TankManiaProtos.TankManiaRequest msg)
             throws Exception {
 
         ctx.write(StreetJamProcessor.process(msg));

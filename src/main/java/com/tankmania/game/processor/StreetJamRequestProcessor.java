@@ -1,8 +1,8 @@
-package com.streetjam.game.processor;
+package com.tankmania.game.processor;
 
-import com.streetjam.proto.StreetJamProtos;
+import com.tankmania.proto.TankManiaProtos;
 
 public interface StreetJamRequestProcessor {
-    boolean isValid(StreetJamProtos.StreetJamRequest request);
-    StreetJamProtos.StreetJamResponse process(StreetJamProtos.StreetJamRequest request);
+    boolean isValid(TankManiaProtos.TankManiaRequest request);
+    TankManiaProtos.TankManiaResponse process(TankManiaProtos.TankManiaRequest request);
 }

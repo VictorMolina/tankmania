@@ -1,6 +1,6 @@
 package com.tankmania.client;
 
-import com.tankmania.proto.StreetJamProtos;
+import com.tankmania.proto.TankManiaProtos;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
@@ -26,7 +26,7 @@ public class DemoClient {
 
             // Get handle to handler so we can send message
             DemoClientGetHandler handle = c.pipeline().get(DemoClientGetHandler.class);
-            StreetJamProtos.StreetJamResponse resp = handle.sendRequest();
+            TankManiaProtos.TankManiaResponse resp = handle.sendRequest();
             c.close();
 
             System.out.println("Got reponse msg from Server: " + resp);

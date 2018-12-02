@@ -1,7 +1,7 @@
-package com.streetjam.game.processor;
+package com.tankmania.game.processor;
 
-import com.streetjam.game.config.Configuration;
-import com.streetjam.proto.StreetJamProtos;
+import com.tankmania.game.config.Configuration;
+import com.tankmania.proto.TankManiaProtos;
 import org.reflections.Reflections;
 
 import java.util.HashSet;
@@ -19,7 +19,7 @@ public class StreetJamProcessor {
         });
     }
 
-    public static StreetJamProtos.StreetJamResponse process(StreetJamProtos.StreetJamRequest request) {
+    public static TankManiaProtos.TankManiaResponse process(TankManiaProtos.TankManiaRequest request) {
         return requestProcessors.stream().filter(p -> p.isValid(request)).findAny().get().process(request);
     }
 }
