@@ -5,13 +5,8 @@ import com.tankmania.game.processor.Processor;
 import com.tankmania.game.processor.TankManiaRequestProcessor;
 import com.tankmania.proto.TankManiaProtos;
 
-@Processor
+@Processor(requestCase = TankManiaProtos.TankManiaRequest.VERSION_REQUEST_FIELD_NUMBER)
 public class VersionProcessor implements TankManiaRequestProcessor {
-
-    @Override
-    public boolean isValid(TankManiaProtos.TankManiaRequest request) {
-        return request.hasVersionRequest();
-    }
 
     @Override
     public TankManiaProtos.TankManiaResponse process(TankManiaProtos.TankManiaRequest request) {

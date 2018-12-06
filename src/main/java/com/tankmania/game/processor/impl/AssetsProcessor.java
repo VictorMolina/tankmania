@@ -7,7 +7,7 @@ import com.tankmania.game.processor.TankManiaRequestProcessor;
 import com.tankmania.game.service.AssetService;
 import com.tankmania.proto.TankManiaProtos;
 
-@Processor
+@Processor(requestCase = TankManiaProtos.TankManiaResponse.ASSETS_RESPONSE_FIELD_NUMBER)
 public class AssetsProcessor implements TankManiaRequestProcessor {
 
     private final AssetService assetService;
@@ -15,11 +15,6 @@ public class AssetsProcessor implements TankManiaRequestProcessor {
     @Inject
     public AssetsProcessor(AssetService assetService) {
         this.assetService = assetService;
-    }
-
-    @Override
-    public boolean isValid(TankManiaProtos.TankManiaRequest request) {
-        return request.hasAssetsRequest();
     }
 
     @Override

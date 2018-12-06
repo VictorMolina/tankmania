@@ -4,22 +4,24 @@ import com.tankmania.game.config.Configuration;
 import com.tankmania.proto.TankManiaProtos;
 import org.reflections.Reflections;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TankManiaProcessor {
 
-    private static final Set<TankManiaRequestProcessor> requestProcessors;
+    private static final Map<Integer, TankManiaRequestProcessor> requestProcessors;
 
     static {
-        requestProcessors = new HashSet<>();
+        requestProcessors = new HashMap<>();
         Reflections reflections = new Reflections();
         reflections.getTypesAnnotatedWith(Processor.class).forEach(clazz -> {
-            requestProcessors.add(Configuration.getInstance((Class<TankManiaRequestProcessor>) clazz));
+            int index = clazz.getAnnotation(Processor.class).requestCase();
+            TankManiaRequestProcessor processor = Configuration.getInstance((Class<TankManiaRequestProcessor>) clazz);
+            requestProcessors.put(index, processor);
         });
     }
 
     public static TankManiaProtos.TankManiaResponse process(TankManiaProtos.TankManiaRequest request) {
-        return requestProcessors.stream().filter(p -> p.isValid(request)).findAny().get().process(request);
+        return requestProcessors.get(request.getRequestCase().getNumber()).process(request);
     }
 }
