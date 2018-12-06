@@ -1,5 +1,8 @@
-package com.tankmania.game.processor;
+package com.tankmania.game.comms.request.processor;
 
+import com.tankmania.game.comms.response.MessageBuilder;
+import com.tankmania.game.comms.request.Processor;
+import com.tankmania.game.comms.request.TankManiaRequestProcessor;
 import com.tankmania.proto.TankManiaProtos;
 
 @Processor

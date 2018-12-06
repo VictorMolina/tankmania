@@ -1,6 +1,9 @@
-package com.tankmania.game.processor;
+package com.tankmania.game.comms.request.processor;
 
 import com.google.inject.Inject;
+import com.tankmania.game.comms.response.MessageBuilder;
+import com.tankmania.game.comms.request.Processor;
+import com.tankmania.game.comms.request.TankManiaRequestProcessor;
 import com.tankmania.game.service.AssetService;
 import com.tankmania.proto.TankManiaProtos;
 

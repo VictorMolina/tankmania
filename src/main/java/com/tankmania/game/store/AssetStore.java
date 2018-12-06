@@ -1,4 +1,6 @@
-package com.tankmania.game.model;
+package com.tankmania.game.store;
+
+import com.tankmania.game.model.Asset;
 
 import java.util.List;
 

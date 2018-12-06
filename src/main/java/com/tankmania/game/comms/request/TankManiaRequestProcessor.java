@@ -1,4 +1,4 @@
-package com.tankmania.game.processor;
+package com.tankmania.game.comms.request;
 
 import com.tankmania.proto.TankManiaProtos;
 

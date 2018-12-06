@@ -4,9 +4,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.tankmania.game.model.Asset;
-import com.tankmania.game.model.AssetStore;
+import com.tankmania.game.store.AssetStore;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
