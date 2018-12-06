@@ -1,6 +1,6 @@
 package com.tankmania.server;
 
-import com.tankmania.game.processor.StreetJamProcessor;
+import com.tankmania.game.processor.TankManiaProcessor;
 import com.tankmania.proto.TankManiaProtos;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -11,7 +11,7 @@ public class DemoProtocolServerHandler extends SimpleChannelInboundHandler<TankM
     protected void channelRead0(ChannelHandlerContext ctx, TankManiaProtos.TankManiaRequest msg)
             throws Exception {
 
-        ctx.write(StreetJamProcessor.process(msg));
+        ctx.write(TankManiaProcessor.process(msg));
     }
 
     @Override

@@ -21,7 +21,7 @@ public class DemoClientInitializer  extends ChannelInitializer<SocketChannel> {
         p.addLast(new ProtobufVarint32LengthFieldPrepender());
         p.addLast(new ProtobufEncoder());
 
-        p.addLast(new DemoClientGetHandler());
+        p.addLast(new DemoClientVersionRequestHandler());
 
     }
 

@@ -25,7 +25,7 @@ public class DemoClient {
             Channel c = bootstrap.connect(HOST, PORT).sync().channel();
 
             // Get handle to handler so we can send message
-            DemoClientGetHandler handle = c.pipeline().get(DemoClientGetHandler.class);
+            DemoClientVersionRequestHandler handle = c.pipeline().get(DemoClientVersionRequestHandler.class);
             TankManiaProtos.TankManiaResponse resp = handle.sendRequest();
             c.close();
 

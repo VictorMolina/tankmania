@@ -1,4 +1,4 @@
-package com.tankmania.client2;
+package com.tankmania.client;
 
 import com.tankmania.proto.TankManiaProtos;
 import io.netty.channel.Channel;
@@ -9,21 +9,14 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 
-public class DemoClientAddHandler extends SimpleChannelInboundHandler<TankManiaProtos.TankManiaResponse> {
+public class DemoClientVersionRequestHandler extends SimpleChannelInboundHandler<TankManiaProtos.TankManiaResponse> {
 
     private Channel channel;
     private TankManiaProtos.TankManiaResponse resp;
     BlockingQueue<TankManiaProtos.TankManiaResponse> resps = new LinkedBlockingQueue<>();
     public TankManiaProtos.TankManiaResponse sendRequest() {
         TankManiaProtos.TankManiaRequest req = TankManiaProtos.TankManiaRequest.newBuilder()
-                .setAddPersonRequest(TankManiaProtos.AddPersonRequest.newBuilder()
-                        .setPerson(TankManiaProtos.Person.newBuilder()
-                                .setId(0L)
-                                .setName("Pia")
-                                .setEmail("pia@yahoo.es")
-                                .addPhones(TankManiaProtos.Person.PhoneNumber.newBuilder()
-                                        .setNumber("3333")
-                                        .setType(TankManiaProtos.Person.PhoneType.MOBILE))))
+                .setVersionRequest(TankManiaProtos.VersionRequest.newBuilder().build())
                 .build();
 
         // Send request

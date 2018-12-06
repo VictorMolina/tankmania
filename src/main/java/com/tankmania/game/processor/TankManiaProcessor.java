@@ -7,15 +7,15 @@ import org.reflections.Reflections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class StreetJamProcessor {
+public class TankManiaProcessor {
 
-    private static final Set<StreetJamRequestProcessor> requestProcessors;
+    private static final Set<TankManiaRequestProcessor> requestProcessors;
 
     static {
         requestProcessors = new HashSet<>();
         Reflections reflections = new Reflections();
         reflections.getTypesAnnotatedWith(Processor.class).forEach(clazz -> {
-            requestProcessors.add(Configuration.getInstance((Class<StreetJamRequestProcessor>) clazz));
+            requestProcessors.add(Configuration.getInstance((Class<TankManiaRequestProcessor>) clazz));
         });
     }
 

@@ -1,35 +1,25 @@
 package com.tankmania.game.processor;
 
-import com.tankmania.game.model.AddressBook;
-import com.tankmania.game.model.Person;
+import com.tankmania.game.model.Asset;
 import com.tankmania.proto.TankManiaProtos;
 
+import java.util.List;
+
 public class MessageBuilder {
-    public static TankManiaProtos.TankManiaResponse getAddressBookResponse(AddressBook addressBook) {
-        TankManiaProtos.AddressBook.Builder addressBookBuilder = TankManiaProtos.AddressBook.newBuilder();
-        addressBook.getContacts().forEach(person -> {
-            TankManiaProtos.Person.Builder personBuilder = TankManiaProtos.Person.newBuilder();
-            personBuilder.setId(person.getId());
-            personBuilder.setName(person.getName());
-            personBuilder.setEmail(person.getEmail());
-            person.getPhones().forEach(phone -> {
-                TankManiaProtos.Person.PhoneNumber.Builder phoneNumberBuilder = TankManiaProtos.Person.PhoneNumber.newBuilder();
-                phoneNumberBuilder.setNumber(phone.getNumber());
-                phoneNumberBuilder.setType(TankManiaProtos.Person.PhoneType.valueOf(phone.getPhoneType().name()));
-                personBuilder.addPhones(phoneNumberBuilder.build());
-            });
-            addressBookBuilder.addPeople(personBuilder.build());
-        });
+    public static TankManiaProtos.TankManiaResponse getVersionResponse() {
         return TankManiaProtos.TankManiaResponse.newBuilder()
-                .setAddressBookResponse(TankManiaProtos.AddressBookResponse.newBuilder()
-                        .addAddressBook(addressBookBuilder.build()))
+                .setVersionResponse(TankManiaProtos.VersionResponse.newBuilder().setVersion("0.0.1"))
                 .build();
     }
 
-    public static TankManiaProtos.TankManiaResponse getAddPersonResponse(Person person) {
+    public static TankManiaProtos.TankManiaResponse getAssetsResponse(List<Asset> assets) {
+        TankManiaProtos.AssetsResponse.Builder builder = TankManiaProtos.AssetsResponse.newBuilder();
+        assets.stream().forEach(asset -> builder.addAsset(TankManiaProtos.Asset.newBuilder()
+                .setName(asset.getName())
+                .setVersion(asset.getVersion())
+                .setUrl(asset.getUrl())));
         return TankManiaProtos.TankManiaResponse.newBuilder()
-                .setAddPersonResponse(TankManiaProtos.AddPersonResponse.newBuilder()
-                        .setId(person.getId()))
+                .setAssetsResponse(builder)
                 .build();
     }
 }

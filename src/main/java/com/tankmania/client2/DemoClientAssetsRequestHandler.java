@@ -1,4 +1,4 @@
-package com.tankmania.client;
+package com.tankmania.client2;
 
 import com.tankmania.proto.TankManiaProtos;
 import io.netty.channel.Channel;
@@ -9,14 +9,14 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 
-public class DemoClientGetHandler extends SimpleChannelInboundHandler<TankManiaProtos.TankManiaResponse> {
+public class DemoClientAssetsRequestHandler extends SimpleChannelInboundHandler<TankManiaProtos.TankManiaResponse> {
 
     private Channel channel;
     private TankManiaProtos.TankManiaResponse resp;
     BlockingQueue<TankManiaProtos.TankManiaResponse> resps = new LinkedBlockingQueue<>();
     public TankManiaProtos.TankManiaResponse sendRequest() {
         TankManiaProtos.TankManiaRequest req = TankManiaProtos.TankManiaRequest.newBuilder()
-                .setAddressBookRequest(TankManiaProtos.AddressBookRequest.newBuilder().setId(1L).build())
+                .setAssetsRequest(TankManiaProtos.AssetsRequest.newBuilder())
                 .build();
 
         // Send request
