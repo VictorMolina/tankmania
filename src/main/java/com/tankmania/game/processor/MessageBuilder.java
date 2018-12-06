@@ -1,4 +1,4 @@
-package com.tankmania.game.comms.response;
+package com.tankmania.game.processor;
 
 import com.tankmania.game.model.Asset;
 import com.tankmania.proto.TankManiaProtos;

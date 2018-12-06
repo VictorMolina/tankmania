@@ -1,4 +1,4 @@
-package com.tankmania.game.comms.request;
+package com.tankmania.game.processor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
