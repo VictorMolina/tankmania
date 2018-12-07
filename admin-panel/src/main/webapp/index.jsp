@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!doctype html>
 <html>
     <head>
@@ -31,16 +32,16 @@
         <!-- menu -->
         <script>
             $('#menu-assets').on('click',function(){
-                $('#body').load('menu/assets.html');
+                $('#body').load('menu/assets.jsp');
             });
             $('#menu-items').on('click',function(){
-                $('#body').load('menu/items.html');
+                $('#body').load('menu/items.jsp');
             });
             $('#menu-players').on('click',function(){
-                $('#body').load('menu/players.html');
+                $('#body').load('menu/players.jsp');
             });
             $('#menu-games').on('click',function(){
-                $('#body').load('menu/games.html');
+                $('#body').load('menu/games.jsp');
             });
         </script>
     </body>

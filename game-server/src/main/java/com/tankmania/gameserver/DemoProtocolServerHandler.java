@@ -1,6 +1,6 @@
-package com.tankmania.server;
+package com.tankmania.gameserver;
 
-import com.tankmania.game.processor.TankManiaProcessor;
+import com.tankmania.gameserver.processors.TankManiaProcessor;
 import com.tankmania.proto.TankManiaProtos;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

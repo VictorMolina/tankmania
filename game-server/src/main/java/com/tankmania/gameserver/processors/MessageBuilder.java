@@ -1,6 +1,6 @@
-package com.tankmania.game.processor;
+package com.tankmania.gameserver.processors;
 
-import com.tankmania.game.model.Asset;
+import com.tankmania.common.model.Asset;
 import com.tankmania.proto.TankManiaProtos;
 
 import java.util.List;

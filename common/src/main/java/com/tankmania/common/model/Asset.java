@@ -1,4 +1,4 @@
-package com.tankmania.game.model;
+package com.tankmania.common.model;
 
 public class Asset {
     private final String name;

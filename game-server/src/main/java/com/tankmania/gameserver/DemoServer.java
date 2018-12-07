@@ -1,4 +1,4 @@
-package com.tankmania.server;
+package com.tankmania.gameserver;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.EventLoopGroup;

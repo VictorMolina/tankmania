@@ -1,10 +1,10 @@
-package com.tankmania.game.processor.impl;
+package com.tankmania.gameserver.processors.impl;
 
 import com.google.inject.Inject;
-import com.tankmania.game.processor.MessageBuilder;
-import com.tankmania.game.processor.Processor;
-import com.tankmania.game.processor.TankManiaRequestProcessor;
-import com.tankmania.game.service.AssetService;
+import com.tankmania.gameserver.processors.MessageBuilder;
+import com.tankmania.gameserver.processors.Processor;
+import com.tankmania.gameserver.processors.TankManiaRequestProcessor;
+import com.tankmania.common.service.AssetService;
 import com.tankmania.proto.TankManiaProtos;
 
 @Processor(requestCase = TankManiaProtos.TankManiaResponse.ASSETS_RESPONSE_FIELD_NUMBER)

@@ -1,6 +1,6 @@
-package com.tankmania.game.processor;
+package com.tankmania.gameserver.processors;
 
-import com.tankmania.game.config.Configuration;
+import com.tankmania.common.config.Configuration;
 import com.tankmania.proto.TankManiaProtos;
 import org.reflections.Reflections;
 

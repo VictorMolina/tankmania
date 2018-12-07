@@ -1,8 +1,8 @@
-package com.tankmania.game.service;
+package com.tankmania.common.service;
 
 import com.google.inject.Inject;
-import com.tankmania.game.model.Asset;
-import com.tankmania.game.store.AssetStore;
+import com.tankmania.common.model.Asset;
+import com.tankmania.common.store.AssetStore;
 
 import java.util.List;
 

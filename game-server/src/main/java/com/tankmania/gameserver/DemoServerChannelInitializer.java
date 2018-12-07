@@ -1,4 +1,4 @@
-package com.tankmania.server;
+package com.tankmania.gameserver;
 
 
 import com.tankmania.proto.TankManiaProtos;

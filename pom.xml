@@ -11,6 +11,7 @@
     <modules>
         <module>game-server</module>
         <module>admin-panel</module>
+        <module>common</module>
     </modules>
 
 </project>
