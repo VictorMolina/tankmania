@@ -17,3 +17,6 @@ buildNumber.properties
 
 # target directory
 target/
+
+# drive credentials
+client_id.json
