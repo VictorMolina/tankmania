@@ -14,7 +14,12 @@ public class AssetService {
     public AssetService(AssetStore assetStore) {
         this.assetStore = assetStore;
     }
+
     public List<Asset> getAssets() {
         return assetStore.getAssets();
+    }
+
+    public void setAssets(String content) {
+        assetStore.setAssets(content);
     }
 }

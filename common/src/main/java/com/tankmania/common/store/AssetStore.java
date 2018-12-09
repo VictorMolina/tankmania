@@ -6,11 +6,14 @@ import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.http.AbstractInputStreamContent;
+import com.google.api.client.http.ByteArrayContent;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
+import com.google.api.services.drive.model.File;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -22,7 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class AssetStore {
@@ -50,8 +53,14 @@ public class AssetStore {
         }
     }
 
-    public void setAssets() {
-        // TODO
+    public void setAssets(String content) {
+        try {
+            File file = driveService.files().get(FILE_ID).execute();
+            AbstractInputStreamContent stream = new ByteArrayContent(null, content.getBytes("UTF-8"));
+            driveService.files().update(file.getId(), new File(), stream).execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private Drive createDriveService() {
@@ -71,7 +80,7 @@ public class AssetStore {
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JacksonFactory.getDefaultInstance(), new InputStreamReader(in));
 
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-                HTTP_TRANSPORT, JacksonFactory.getDefaultInstance(), clientSecrets, Collections.singletonList(DriveScopes.DRIVE))
+                HTTP_TRANSPORT, JacksonFactory.getDefaultInstance(), clientSecrets, Arrays.asList(DriveScopes.DRIVE, DriveScopes.DRIVE_FILE, DriveScopes.DRIVE_APPDATA, DriveScopes.DRIVE_SCRIPTS, DriveScopes.DRIVE_METADATA))
                 .setDataStoreFactory(new FileDataStoreFactory(new java.io.File("tokens")))
                 .setAccessType("offline")
                 .build();

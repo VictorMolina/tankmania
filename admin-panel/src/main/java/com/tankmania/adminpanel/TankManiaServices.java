@@ -15,4 +15,8 @@ public class TankManiaServices {
     public static String getAssets() {
         return gson.toJson(assetService.getAssets(), List.class);
     }
+
+    public static void setAssets(String assets) {
+        assetService.setAssets(assets);
+    }
 }

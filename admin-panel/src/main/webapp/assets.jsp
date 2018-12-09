@@ -1,4 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="com.tankmania.adminpanel.TankManiaServices" %>
+
+<%
+    String newContent = request.getParameter("assets");
+    if(newContent != null){
+        TankManiaServices.setAssets(newContent);
+    }
+%>
+
 <!doctype html>
 <html>
     <head>
@@ -20,7 +29,14 @@
         </div>
 
         <div id="body" class="container mt-3">
-            &nbsp;
+            <form id="assets-form" action="#" method="post" accept-charset="UTF-8">
+                <div class="form-group">
+                    <label for="assets">Current assets</label>
+                    <% String assets = TankManiaServices.getAssets(); %>
+                    <textarea class="form-control" id="assets" name="assets" rows="24"><% out.println(assets); %></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
         </div>
 
         <div id="footer" class="container mt-3">
@@ -34,6 +50,10 @@
         <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
         <script>
             $("a").on("click", function (e) {
+                $('#loader').modal();
+                return true;
+            });
+            $("#assets-form").submit(function(e) {
                 $('#loader').modal();
                 return true;
             });
